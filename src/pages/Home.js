@@ -1,3 +1,5 @@
+import {useContext}from "react";
+import {StoreContext}from "../store";
 import { Layout,Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
 import AppHeader from "../components/Header"
@@ -10,6 +12,7 @@ const { Header, Content, Footer ,Sider} = Layout;
 
 
 function Home() {
+  const { state: { page: {title, products} } } = useContext(StoreContext);
   return (
     <Layout className="container main-layout">
       <Sider
@@ -63,7 +66,7 @@ function Home() {
         </Sider>
     <Layout>
       <Header className="layout-header">
-        <AppHeader title="NORDIC NEST Shopping Cart"/>
+        <AppHeader title={title}/>
       </Header>
       <Content className="layout-content">
         <ProductList products={products}/>
