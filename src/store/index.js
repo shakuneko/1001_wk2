@@ -4,7 +4,8 @@ import products from "../json/products.json"
 import { 
     SET_PAGE_TITLE,
     SET_PAGE_CONTENT,
-    SET_NAVBAR_ACTIVEITEM 
+    SET_NAVBAR_ACTIVEITEM,
+    CART_ADD_ITEM 
  } from "../utils/constants"
 
 export const StoreContext = createContext();
@@ -15,8 +16,12 @@ const initialState = {
     },
     navBar: {
        activeItem: "/",
-    }
+    },
+    cartItems :[],
+
  };
+ let cartItems = {};
+
 function reducer(state, action) {
     switch (action.type) {
        case SET_PAGE_TITLE:
@@ -41,7 +46,18 @@ function reducer(state, action) {
                navBar: {
                   activeItem: action.payload
                }
-            }
+            };
+            case CART_ADD_ITEM:
+                const item = action.playload;
+                const product = state.cartItem.find((x)=>x.id === item.id);
+                if (product) {
+                    cartItems = state.cartItem.map((x) =>
+                    x.id === product.id ? item :x
+                    );
+                    return{...state,cartItems};
+                }
+                cartItems = [...state.cartItems];
+                return{...state,cartItems};
          default:
             return state;
       }

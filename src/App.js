@@ -1,4 +1,4 @@
-import {createContext,useReducer} from "react";
+import {createContext} from "react";
 import {StoreProvider } from "./store";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
@@ -28,7 +28,7 @@ function App() {
           <Route path="/furniture" component={Furniture} />
         </Switch>
       </BrowserRouter>
-      </StoreProvider>
+    </StoreProvider>
   );
 }
 
