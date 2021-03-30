@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import NavBar from "./NavBar";
+import CartSummary from "./CartSummary";
 import {Link}from "react-router-dom"
 import products from "../json/products.json"
 import { StoreContext } from "../store"
@@ -22,19 +23,24 @@ export default function Header({title}) {
          }); 
      };
     return (
-        <div className="header" onClick={onClickHeader}>
-            <Link to="/">
-            <h1 className="header-title">
-                {title}
-            </h1>
-            </Link>
+        <header className="header">
+            <div className="header-wrap">
+                <div className="header" onClick={onClickHeader}>
+                    <Link to="/">
+                    <h1 className="header-title">
+                        {title}
+                    </h1>
+                    </Link>
 
-            <p
-                className="header-slogan">
-                An example made by Create-React-App.
-            </p>
+                    <p
+                        className="header-slogan">
+                        An example made by Create-React-App.
+                    </p>
+                    </div>
+                    <CartSummary />
+                   </div>
                 <hr className="hr-header-line " />
                 <NavBar/>
-        </div>
+        </header>
     );
 }

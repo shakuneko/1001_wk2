@@ -77,7 +77,7 @@ function ProductDetail({ product }) {
                     </p>
                     </div>
 
-               <AddToCart />
+               <AddToCart product={product} qty={qty} />
 
                     
                 </div>

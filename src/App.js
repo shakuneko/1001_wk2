@@ -1,4 +1,3 @@
-import {createContext} from "react";
 import {StoreProvider } from "./store";
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
@@ -10,8 +9,6 @@ import HomeAccessories from './pages/HomeAccessories'
 import Lighting from './pages/Lighting'
 import Textile from './pages/Textile'
 import Furniture from './pages/Furniture'
-
-export const StoreContext = createContext();
 
 function App() {
   return (

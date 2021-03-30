@@ -48,18 +48,19 @@ function reducer(state, action) {
                }
             };
             case CART_ADD_ITEM:
-                const item = action.playload;
-                const product = state.cartItem.find((x)=>x.id === item.id);
+                const item = action.payload;
+                console.log(item);
+                const product = state.cartItems.find((x)=>x.id === item.id);
                 if (product) {
-                    cartItems = state.cartItem.map((x) =>
+                    cartItems = state.cartItems.map((x) =>
                     x.id === product.id ? item :x
                     );
                     return{...state,cartItems};
                 }
-                cartItems = [...state.cartItems];
+                cartItems = [...state.cartItems, item];
                 return{...state,cartItems};
-         default:
-            return state;
+            default:
+               return state;
       }
  }
 
