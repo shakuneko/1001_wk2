@@ -9,6 +9,7 @@ import HomeAccessories from './pages/HomeAccessories'
 import Lighting from './pages/Lighting'
 import Textile from './pages/Textile'
 import Furniture from './pages/Furniture'
+import ShoppingCart from './components/ShoppingCart'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/lighting" component={Lighting} />
           <Route path="/textile" component={Textile} />
           <Route path="/furniture" component={Furniture} />
+          <Route path="/shoppingCart" component={ShoppingCart} />
         </Switch>
       </BrowserRouter>
     </StoreProvider>

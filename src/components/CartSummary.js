@@ -4,6 +4,7 @@ import { CartIcon } from "./Icons";
 import { StoreContext } from "../store"
 import { useState, useContext } from "react";
 import CartModal from "./CartModal";
+import { Link }from 'react-router-dom';
 
 export default function CartSummary() {
   const { state: { cartItems } } = useContext(StoreContext);
@@ -16,16 +17,16 @@ export default function CartSummary() {
 
   return (
     <>
+      <Link to={`/shoppingCart/`}>
       <nav onClick={toggleModal} className="header-cart-summary" >
-        <Badge count={count}  style={{ color: 'white', backgroundColor: '#6366F2'}}>
-          <CartIcon />
-        </Badge> 
+        <Badge count={count} size={"small"} style={{ color: 'white', backgroundColor: '#6366F2' }}>
+          <CartIcon size={32}/>
+        </Badge>
         <p className="cart-summary-text" style={{color: '#fff'}}> Shopping bag </p>         
       </nav>
-      < CartModal
-          isModalVisible={isModalVisible}
-          toggleModal={toggleModal}
-          />
+    
+        
+      </Link>
     </>
   );
 }

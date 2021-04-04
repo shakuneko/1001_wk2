@@ -25,7 +25,7 @@ export default function Header({title}) {
     return (
         <header className="header">
             <div className="header-wrap">
-                <div className="header" onClick={onClickHeader}>
+                <div className="header-text" onClick={onClickHeader}>
                     <Link to="/">
                     <h1 className="header-title">
                         {title}
