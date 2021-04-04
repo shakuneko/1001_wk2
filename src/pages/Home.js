@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import AppHeader from "../components/Header"
 import AppFooter from "../components/Footer"
 import ProductList from "../components/ProductList";
-import products from "../json/products.json";
+
 
 const { Header, Content, Footer ,Sider} = Layout;
 
