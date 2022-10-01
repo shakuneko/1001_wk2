@@ -1,27 +1,24 @@
-import NavItem from "./NavItem";
 import { NavLink } from 'react-router-dom';
+import { Menu } from 'antd';
 
-export default function NavBar() {
+export default function NavBar({navCtrol}) {
+
+
+
     return (
-        <div className="nav-bar">
-            <NavLink to="/tableware" className="nav-item" activeClassName="nav-item--active">
-                Tableware
-            </NavLink>
-            <NavLink to="/cookware" className="nav-item" activeClassName="nav-item--active">
-                Cookware
-            </NavLink>
-            <NavLink to="/home-accessories" className="nav-item" activeClassName="nav-item--active">
-                Home accessories
-            </NavLink>
-            <NavLink to="/lighting" className="nav-item" activeClassName="nav-item--active">
-                Lighting
-            </NavLink>
-            <NavLink to="/textile" className="nav-item" activeClassName="nav-item--active">
-                Textile
-            </NavLink>
-            <NavLink to="/furniture" className="nav-item" activeClassName="nav-item--active">
-                Furniture
-            </NavLink>
-        </div>
+
+            <Menu className={`nav ${navCtrol?"navbar_hi":"navbar_gone"}`}
+
+                mode="vertical"
+            >
+                <Menu.Item className='nav_title' key="tableware"><NavLink to='/tableware'>Tableware</NavLink></Menu.Item>
+                <Menu.Item className='nav_title' key="/cookware"><NavLink to='/cookware'>Cookware</NavLink></Menu.Item>
+                <Menu.Item className='nav_title' key="/home"><NavLink to='/'>Home</NavLink></Menu.Item>
+                <Menu.Item className='nav_title' key="/lighting"><NavLink to='/lighting'>Lighting</NavLink></Menu.Item>
+                <Menu.Item className='nav_title' key="/furniture"><NavLink to='/furniture'>Furniture</NavLink></Menu.Item>
+                
+            </Menu>
+    
+
     );
 }
